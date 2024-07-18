@@ -12,7 +12,7 @@ const handler = async (m, {conn, text, usedPrefix, command}) => {
   const res = await googleImage(text);
   const image = await res.getRandom();
   const link = image;
-  conn.sendButton(m.chat, `*نـتـيـجـه بـحـثـك:* ${text}`, wm, link, [['كـمـان صــوره', `/imagen ${text}`]], null, null, m )
+  conn.sendFile(m.chat, `*نـتـيـجـه بـحـثـك:* ${text}`, wm, link, [['كـمـان صــوره', `/imagen ${text}`]], null, null, m )
 handler.help = ['gimage <query>', 'imagen <query>'];
 handler.tags = ['internet', 'tools'];
 handler.command = /^(gimage|image|imagen|صوره)$/i;
