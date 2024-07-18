@@ -12,9 +12,8 @@ const handler = async (m, {conn, text, usedPrefix, command}) => {
   const res = await googleImage(text);
   const image = await res.getRandom();
   const link = image;
-  conn.sendFile(m.chat, link, 'error.jpg', `${tradutor.texto2[0]} ${text}\n${tradutor.texto2[1]} ${link}\n${tradutor.texto2[2]}`, m);
-};
+  conn.sendButton(m.chat, `*نـتـيـجـه بـحـثـك:* ${text}`, wm, link, [['كـمـان صــوره', `/imagen ${text}`]], null, null, m )
 handler.help = ['gimage <query>', 'imagen <query>'];
 handler.tags = ['internet', 'tools'];
-handler.command = /^(gimage|image|imagen)$/i;
+handler.command = /^(gimage|image|imagen|صوره)$/i;
 export default handler;
